@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Flashcard Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{
+            font-family:'Poppins',sans-serif;
+            padding:20px;
+            transition:background-color .3s,color .3s
+        }
+        .light-mode{background:linear-gradient(to right,#f0f2f5,#e0eafc);color:#333}
+        .dark-mode{background:#121212;color:#f0f0f0}
+        .container{
+            max-width:900px;margin:auto;background:#fff;padding:30px;border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,.1)
+        }
+        .dark-mode .container{background:#1e1e1e;box-shadow:0 0 15px rgba(255,255,255,.1)}
+        h1,h2{text-align:center;margin:10px 0}
+        form{display:flex;flex-direction:column;gap:20px;margin-bottom:30px}
+        textarea{
+            resize:vertical;font-size:16px;min-height:150px;padding:15px;border:1px solid #ccc;border-radius:10px
+        }
+        input[type="file"]{font-size:16px}
+        button{
+            padding:12px;font-size:16px;background:#4b7bec;color:#fff;border:none;border-radius:10px;cursor:pointer;
+            transition:background-color .3s
+        }
+        button:hover{background:#3867d6}
+        .difficulty-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+}
+.easy { background-color: #2ecc71; }
+.medium { background-color: #f1c40f; }
+.hard { background-color: #e74c3c; }
+
+        /* ---------- Flashcard styles ---------- */
+        .flashcard-box {
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.flashcard {
+    width: 100%;
+    min-height: 120px;
+    background-color: #f8f9fa;
+    padding: 20px 30px;
+    border-radius: 12px;
+    border-left: 5px solid #4b7bec;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.flashcard:hover {
+    transform: rotateY(180deg);
+}
+
+.flashcard .front,
+.flashcard .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 30px;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flashcard .back {
+    transform: rotateY(180deg);
+}
+
+.dark-mode .flashcard {
+    background-color: #2e2e2e;
+}
+
+        .flashcard:hover{transform:rotateY(180deg)}
+        .side{
+            position:absolute;top:0;left:0;width:100%;height:100%;padding:15px;border-radius:10px;
+            display:flex;justify-content:center;align-items:center;text-align:center;backface-visibility:hidden;
+            border-left:5px solid #4b7bec;background:#f8f9fa
+        }
+        .dark-mode .side{background:#2e2e2e}
+        .back{transform:rotateY(180deg);background:#dff2fd}
+        .dark-mode .back{background:#3a4b5b}
+        /* ---------- Export buttons & toggle ---------- */
+        .export-buttons{display:flex;justify-content:center;gap:10px;margin:25px 0}
+        .toggle-btn{
+            position:fixed;top:20px;right:20px;padding:10px 20px;background:#4b7bec;color:#fff;border:none;
+            border-radius:10px;cursor:pointer
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <h1>📚 AI‑Powered Flashcard Generator</h1>
+
+        <form action="/generate" method="POST" enctype="multipart/form-data">
+            <label>📋 Paste Educational Text:</label>
+            <textarea name="text_input" placeholder="Paste your content here..."></textarea>
+
+            <label>📂 Or Upload a File (.txt / .pdf):</label>
+            <input type="file" name="file_input" />
+
+            <button type="submit">🚀 Generate Flashcards</button>
+        </form>
+
+        {% if flashcards %}
+        <h2>🧠 Generated Flashcards</h2>
+        <div style="text-align:center;">
+            {% for card in flashcards %}
+            <!-- <div class="flashcard-box">
+                <div class="flashcard">
+                    <div class="side front"><strong>Q:</strong> {{ card.question }}</div>
+                    <div class="side back"><strong>A:</strong> {{ card.answer }}</div>
+                </div>
+            </div> -->
+    <div class="flashcard-box">
+    <div class="flashcard">
+        <div class="front">
+            <strong>Q:</strong> {{ card.question }}<br>
+            <span class="difficulty-badge {{ card.difficulty|lower }}">{{ card.difficulty }}</span>
+        </div>
+        <div class="back"><strong>A:</strong> {{ card.answer }}</div>
+    </div>
+</div>
+
+            <!-- {% endfor %}
+        </div>
+
+        
+        {% endif %}
+    </div> -->
+
+    <button class="toggle-btn" onclick="toggleMode()">🌙 Toggle Mode</button>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
+</body>
+</html>
