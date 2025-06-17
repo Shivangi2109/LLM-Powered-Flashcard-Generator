@@ -1,0 +1,3 @@
+Large Language Models (LLMs) operate on the principles of deep learning, leveraging neural network architectures to process and understand human languages.
+
+These models, are trained on vast datasets using self-supervised learning techniques. The core of their functionality lies in the intricate patterns and relationships they learn from diverse language data during training. LLMs consist of multiple layers, including feedforward layers, embedding layers, and attention layers. They employ attention mechanisms, like self-attention, to weigh the importance of different tokens in a sequence, allowing the model to capture dependencies and relationships.
