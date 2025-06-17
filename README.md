@@ -6,13 +6,13 @@ This is a lightweight, LLM-powered flashcard generation web app built with **Fla
 
 ## 🚀 Features
 
-- 🔍 Accepts raw text or educational files (PDF/TXT)
-- 🧠 Generates 10–15 flashcards per input
-- 🧾 Adds difficulty levels to each flashcard (Easy/Medium/Hard)
-- 💬 Powered by Together.ai's open LLMs
-- 🌗 Light/Dark mode toggle for better accessibility
-- 🌐 Clean Flask web interface (no Streamlit)
-- 🧼 Auto-deletes temporary files for clean deployment
+-  Accepts raw text or educational files (PDF/TXT)
+-  Generates 10–15 flashcards per input
+-  Adds difficulty levels to each flashcard (Easy/Medium/Hard)
+-  Powered by Together.ai's open LLMs
+-  Light/Dark mode toggle for better accessibility
+-  Clean Flask web interface (no Streamlit)
+-  Auto-deletes temporary files for clean deployment
 
 ---
 
