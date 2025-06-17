@@ -59,8 +59,8 @@ FLASHCARD_GENERATOR/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/flashcard-generator.git
-cd flashcard-generator
+git clone https://github.com/Shivangi2109/LLM-Powered-Flashcard-Generator.git
+cd Flashcard_Generator
 ```
 
 ### 2. Create a virtual environment
