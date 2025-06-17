@@ -36,8 +36,16 @@ FLASHCARD_GENERATOR/
 
 ---
 # Output
-
-
+### Input Format : PDF 
+### Theme : Light
+![Input Format : PDF](Project_Images/first.PNG)
+![Input Format : PDF](Project_Images/second.PNG)
+![Input Format : PDF](Project_Images/third.PNG)
+### Input Format : txt
+### Theme : Dark
+![Input Format : txt](Project_Images/fourth.PNG)
+![Input Format : txt](Project_Images/fifth.PNG)
+![Input Format : txt](Project_Images/sixth.PNG)
 
 ---
 
